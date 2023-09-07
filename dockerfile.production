@@ -1,0 +1,23 @@
+FROM node:19.9-alpine3.16
+
+WORKDIR /server
+
+ENV HOST=localhost
+
+ENV NODE_ENV=production
+
+ENV MONGODB_URI=mongodb+srv://dev:eeztKrlJhFsai9Li@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
+
+ENV TOKEN_KEY=B3C0NBUS!N3GR0UP
+
+ENV PORT=80
+
+COPY ./package.json ./yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+EXPOSE 80
+
+CMD ["yarn","start"]

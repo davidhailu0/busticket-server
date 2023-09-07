@@ -1,0 +1,45 @@
+
+type BusCompany{
+    _id:ID
+    name: String
+    phoneNumber: String
+    email: String
+    password: String
+    active:Boolean
+    verified:Boolean
+    logo: String
+    routes:[Route]
+    license: String
+    numberOfBuses:Int
+    token:String
+    OTP:String
+}
+
+input loginInfoInput{
+    email:String!
+    password:String!
+}
+
+input BusCompanyCreateInput{
+    name: String!
+    phoneNumber: String!
+    email: String!
+    logo: String
+    password: String!
+    routes:[ID]
+    license: String
+    numberOfBuses: Int
+}
+
+input BusCompanyUpdateInput{
+    name: String
+    phoneNumber: String
+    email: String
+    active:Boolean
+    password: String
+    routes:[ID]
+    logo: String
+    license: String
+    numberOfBuses: Int
+    verified:Boolean
+}

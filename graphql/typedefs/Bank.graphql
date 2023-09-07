@@ -1,0 +1,18 @@
+type Bank{
+    _id:ID
+    name:String
+    logo:String
+    accountNumber:String
+    available:Boolean
+}
+
+input createBankInput{
+    name:String
+    accountNumber:String
+    logo:String
+}
+
+input updateBankInput{
+    accountNumber:String
+    available:Boolean
+}

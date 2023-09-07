@@ -1,0 +1,22 @@
+type BackOffice{
+    _id:ID
+    username:String
+    password:String
+    role:String
+    active:Boolean
+    token:String    
+    OTP:String
+}
+
+input BackOfficeAdminCreate{
+    username:String!
+    password:String!
+    role:String
+}
+
+input BackOfficeAdminUpdate{
+    username:String
+    password:String
+    role:String
+    active:Boolean 
+}

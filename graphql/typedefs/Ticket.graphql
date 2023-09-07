@@ -1,0 +1,61 @@
+type Ticket{
+    _id:ID
+    ticketPurchaser: User
+    passenger: User
+    bus: Bus
+    pickupLocation: String
+    departure:String
+    destination:String
+    date: String
+    time:String
+    status: String
+    referenceID: String
+    reservedSeat: String
+    price:Float
+    reservedAt:String
+    bookedAt:String
+    expiredAt: String
+    completedAt:String
+    terminatedBy:String
+    cancelledAt:String
+    bankName:String,
+    bankAccount:String,
+    bookedBy:String
+    userNotified:Boolean
+}
+
+input CreateTicketInput{
+    ticketPurchaser: ID!
+    bookedBy:String
+    passengerId: [ID]!
+    busId:ID!
+    pickupLocations: [String]
+    departure:String
+    destination:String
+    date: String!
+    time: String!
+    reservedSeats: [String]!
+    bankName:String
+    bankAccount:String
+    referenceID:String
+    language:String
+}
+
+input UpdateTicketInput{
+    passengerId: [ID]
+    bankName:String
+    bankAccount:String
+    pickupLocations:[String]
+    busId:ID
+    date: String
+    time: String
+    reservedSeat: [String]
+    tripId: String
+    status: String
+    bookedAt:String
+    expiredAt:String
+    completedAt:String
+    cancelledAt:String
+    terminatedBy:String
+    userNotified:Boolean
+}

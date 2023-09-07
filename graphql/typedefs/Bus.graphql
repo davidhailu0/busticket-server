@@ -1,0 +1,38 @@
+type Bus{
+    _id:ID
+    busOwner:BusCompany
+    plateNumber:String
+    busBrand:String
+    busModel:String
+    manufacturedYear:Int
+    VIN:String
+    driver:Employee
+    features:[String]
+    numberOfSeats:Int
+    unavailableSeats:[Int]
+    busAvailable:Boolean
+    assignedDates:[String]
+    OTP:String
+}
+
+input createBusInput{
+    driver:ID
+    busOwner:ID!
+    busBrand:String!
+    busModel:String!
+    manufacturedYear:Int!
+    plateNumber:String!
+    features:[String!]!
+    numberOfSeats:Int!
+    unavailableSeats:[Int]
+    VIN:String!
+}
+
+input updateBusInput{
+    driver:ID
+    features:[String]
+    numberOfSeats:Int
+    unavailableSeats:[Int]
+    busAvailable:Boolean
+    assignedDates:[String]
+}

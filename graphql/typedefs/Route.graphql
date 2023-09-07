@@ -1,0 +1,31 @@
+
+type Route{
+    _id:ID!
+    departure: String
+    destination: String
+    price: Float
+    pickupLocations: [String]
+    returnPickupLocations: [String]
+    duration:Float
+    subRoutes: [Route]
+}
+
+input RouteCreateInput{
+    departure: String!
+    destination: String!
+    price: Float!
+    pickupLocations: [String]!
+    returnPickupLocations:[String]
+    duration:Float
+    subRoutes: [ID]
+}
+
+input RouteUpdateInput{
+    departure: String
+    destination: String
+    price: Float
+    pickupLocations: [String]
+    returnPickupLocations:[String]
+    duration:Float
+    subRoutes: [ID]
+}

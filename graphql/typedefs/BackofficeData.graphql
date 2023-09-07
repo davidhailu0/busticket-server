@@ -1,0 +1,7 @@
+type BackOfficeData{
+    numberOfBusCompanies:Int
+    numberOfSoldTickets:Int
+    numberOfCustomers:Int
+    numberOfCallOperators:Int
+    numberOfBanks:Int
+}

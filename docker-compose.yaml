@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  mongoDB:
+    container_name: mongoDB
+    image: mongo:4.2.24-bionic
+    networks:
+      - server_network
+  server:
+    container_name: production_server
+    build: 
+      dockerfile: dockerfile.production
+      context: ./
+    ports:
+      - 9000:9000
+    environment:
+      - MONGODB_URI=mongodb://mongoDB:27017/mybus-db
+      - PORT=9000
+      - HOST=localhost
+    networks:
+      - server_network
+    depends_on:
+      - mongoDB
+  testserver:
+    container_name: testserver
+    build:
+      dockerfile: dockerfile.test
+      context: ./
+    environment:
+      - MONGODB_URI=mongodb://mongoDB:27017/mybus-test-db
+      - PORT=9000
+      - HOST=temp_server
+    depends_on:
+      - mongoDB
+    networks:
+      - server_network
+networks:
+  server_network: 
+    driver: bridge

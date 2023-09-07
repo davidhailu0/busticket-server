@@ -1,0 +1,59 @@
+type Employee{
+    _id:ID
+    name:String
+    phoneNumber:[String]
+    busCompany:ID
+    address:String
+    role:String
+    password:String
+    assignedTo:Bus
+    emergencyContactName:String
+    emergencyContactPhone:String
+    suretyName:String
+    suretyPhone:String
+    status:Boolean
+    languages:[String]
+    licenseType:String
+    licenseID:String
+    licenseExpiryDate:String
+    licensePhoto:String
+    plateNumber:String
+    assignedDates:[String]
+    OTP:String
+}
+
+input AddNewEmployee{
+    name:String!
+    phoneNumber:[String]!
+    busCompany:ID!
+    address:String!
+    role:String!
+    password:String
+    emergencyContactName:String
+    emergencyContactPhone:String
+    suretyName:String
+    suretyPhone:String
+    languages:[String]
+    licenseType:String
+    licenseID:String
+    licensePhoto:String
+    licenseExpiryDate:String
+}
+
+input UpdateEmployee{
+    name:String
+    phoneNumber:[String]
+    address:String
+    role:String
+    password:String
+    emergencyContactName:String
+    emergencyContactPhone:String
+    suretyName:String
+    suretyPhone:String
+    status:Boolean
+    languages:[String]
+    licenseType:String
+    licenseID:String
+    licenseExpiryDate:String
+    assignedDates:[String]
+}

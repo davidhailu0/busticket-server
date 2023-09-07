@@ -1,0 +1,113 @@
+scalar Date
+
+type Query{
+    routes: [Route]
+    route(id:ID!): Route
+    locationList:Route
+
+    bus(busId:ID!):Bus
+    buses:[Bus]
+    allBusesOfTheCompany(busID:ID!):[Bus]
+
+    busCompanies:[BusCompany]
+    busCompany(id:ID!):BusCompany
+    allRoutesOfBusCompany(busCompanyId:ID!):[Route]
+    getBusCompanyData(id:ID!):ManagementData
+
+    users: [User]
+    user(id:ID):User
+    userFile:User
+    bookedPassengers(tripId:ID!):[User]
+
+    tickets: [Ticket]
+    myTickets(userId:ID!):[Ticket]
+    ticket(id:ID!): Ticket
+    reservedTickets(referenceID:String):[Ticket]
+    searchTicket(searchValue:String!):[Ticket]
+
+    trips(trip:TripSearchInput!): [Trip]
+    allTrips:[Trip]
+    trip(id:ID!):Trip
+    tripForBusCompany(busCompanyId:ID):[Trip]
+
+    scheduledTrips(busCompanyID:ID!):[Schedule]
+    scheduledTrip(tripID:ID!):Schedule
+
+    bank(bankId:ID!):Bank
+    banks:[Bank]
+    allBanks:[Bank]
+
+    allEmployeeOfTheBus(busCompanyId:ID!):[Employee]
+    employee(employeeId:ID!):Employee
+    allDrivers(busCompanyID:ID!):[Employee]
+    allDriverAssistants(busCompanyID:ID!):[Employee]
+
+    activityLogs(companyId:ID!):[ActivityLog]
+    allActivityLogs:[ActivityLog]
+    backOfficeData:BackOfficeData
+    backOfficeEmployees:[BackOffice]
+    backOfficeEmployee(id:ID!):BackOffice
+
+    getAllCallCenterData(callCenterId:ID!):CallCenter
+    getAllCallCenters:[CallCenter]
+}
+
+type Mutation{
+    addRoute(route: RouteCreateInput!,activity:CreateActivityLog): Route!
+    updateRoute(id: ID!, route: RouteUpdateInput!,activity:CreateActivityLog): Route
+    deleteRoute(id: ID!,activity:CreateActivityLog): Route
+
+    addBus(newBusInput:createBusInput!,activity:CreateActivityLog):Bus
+    updateBus(busID:ID!,BusInfo:updateBusInput!,activity:CreateActivityLog):Bus
+
+    getBusCompanyDataWithParam(id:ID,date:String):ManagementData
+    loginBusCompany(loginInfo:loginInfoInput!):BusCompany
+    addBusCompany(busCompany:BusCompanyCreateInput!):BusCompany
+    updateBusCompany(id: ID!, busCompany:BusCompanyUpdateInput!,activity:CreateActivityLog): BusCompany
+    deleteBusCompany(id: ID!):BusCompany
+    forgotPasswordBusCompany(credential:String):BusCompany
+    checkOTPBusCompany(companyID:ID,OTP:String):String
+    changePasswordBusCompany(userID:ID,newPassword:String):BusCompany
+
+    registerUsers(users: [UserCreateInput!]!): [User]!
+    login(credential:CredentialInput!):User
+    signupUser(user:UserSignupInput!):User
+    registerUserLookingForTrip(user:UnsuccessfulSearchInput!): User
+    updateUser(id: ID!, user: UserUpdateInput!): User
+    deleteUser(id: ID!): User
+    forgotPasswordUser(phoneNumber:String):User
+    checkOTPUser(userID:ID,OTP:String):String
+    changePasswordUser(userID:ID,newPassword:String):User
+
+    reserveTicket(ticket:CreateTicketInput!):[Ticket]!
+    searchWithBookingCode(bookingCode:String!):[Ticket]
+    updateTicketInfo(referenceID:ID,ticketId:ID,ticketInfo:UpdateTicketInput!):[Ticket]
+    bookTicket(ticket:UpdateTicketInput): Ticket!
+    cancelTicket(id: ID!):[Ticket]!
+
+    updateTrip(id:ID!,trip: TripUpdateInput,activity:CreateActivityLog):Trip!
+    deleteTrip(id:ID!,activity:CreateActivityLog):Trip
+
+    updateScheduledTrip(id:ID!,updatedSchedule:updateScheduledInput!,activity:CreateActivityLog):Schedule
+    reassignScheduledTrip(id:ID!,reassignedSchedule:reassignedScheduleInput!,activity:CreateActivityLog):Schedule
+
+    addBank(bank:createBankInput!,activity:CreateActivityLog):Bank
+    updateBank(bankId:ID!,bank:updateBankInput!,activity:CreateActivityLog):Bank
+
+    addEmployee(employeeInfo:AddNewEmployee!,activity:CreateActivityLog):Employee
+    updateEmployee(employeeId:ID!,employeeInfo:UpdateEmployee!,activity:CreateActivityLog):Employee
+
+    loginBackOffice(backOfficeInfo:BackOfficeAdminCreate!):BackOffice
+    addAdmin(adminInfo:BackOfficeAdminCreate!,activity:CreateActivityLog):BackOffice
+    AddCallCenter(callCenterInfo:CreateCallCenterInput,activity:CreateActivityLog):CallCenter
+    updateAdmin(id:ID,adminInfo:BackOfficeAdminUpdate,activity:CreateActivityLog):BackOffice
+
+    forgotPasswordCallCenter(phoneNumber:String):CallCenter
+    checkOTPCallCenter(userID:ID,OTP:String):String
+    changePasswordCallCenter(userID:ID,newPassword:String):CallCenter
+
+    updateCallsInfo(callCenterId:ID):CallCenter
+    updateCallCenterInfo(callCenterId:ID,updateInfo:UpdateCallCenterInput):CallCenter
+    loginCallCenter(credentialInfo:LoginInput):CallCenter
+}
+

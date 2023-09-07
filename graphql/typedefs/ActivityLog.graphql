@@ -1,0 +1,12 @@
+type ActivityLog{
+    _id:ID
+    name:String
+    companyId:ID
+    activity:String
+    time:String
+}
+
+input CreateActivityLog{
+    companyId:ID
+    name:String!
+}

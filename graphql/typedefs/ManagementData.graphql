@@ -1,0 +1,7 @@
+type ManagementData{
+    numberOfTrips:Int
+    ticketsPurchased:Int
+    totalRevenue:Float
+    lastYearSoldTicket:[Int]
+    thisYearSoldTicket:[Int]
+}

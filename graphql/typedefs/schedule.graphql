@@ -1,0 +1,26 @@
+
+type Schedule{
+    _id:ID
+    departure:String
+    destination:String
+    duration:Float
+    busCompany:BusCompany
+    assignedBuses:[Bus]
+    returnDays:[[String]]
+    departureDays:[[String]]
+    departureTime:[[String]]
+    returnTime:[[String]]
+}
+
+input updateScheduledInput{
+    assignedBuses:[ID]
+    departureDays:[[String]]
+    returnDays:[[String]]
+    departureTime:[[String]]
+    returnTime:[[String]]
+}
+
+input reassignedScheduleInput{
+    previousBusID:ID,
+    newBusID:ID
+}

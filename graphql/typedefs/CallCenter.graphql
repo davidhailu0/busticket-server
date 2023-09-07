@@ -1,0 +1,37 @@
+type CallCenter{
+    _id:ID
+    name:String
+    password:String
+    phoneNumber:String
+    totalCallsReceived:Int
+    successfullyBookedTicketsCount:Int
+    pendingTicketsCount:Int
+    cancelledTicketsCount:Int
+    successfullyBookedTickets:[Ticket]
+    pendingTickets:[Ticket]
+    cancelledTickets:[Ticket]
+    allReceivedCall:[Ticket]
+    token:String
+    status:Boolean
+    role:String
+    allReceivedCallsSinceRegistration:Int
+    OTP:String
+}
+
+input CreateCallCenterInput{
+    name:String
+    password:String
+    phoneNumber:String
+    role:String
+}
+
+input UpdateCallCenterInput{
+    password:String
+    phoneNumber:String
+    status:Boolean
+}
+
+input LoginInput{
+    phoneNumber:String
+    password:String
+}

@@ -1,0 +1,51 @@
+type User{
+    _id:ID
+    name:String
+    password:String
+    phoneNumber:String
+    active:Boolean
+    token:String
+    role:String
+    StillLooking:Boolean
+    departure:String
+    destination:String
+    pickupLocation:String
+    tripDate:String
+    OTP:String
+}
+
+input UserCreateInput{
+    name:String!
+    phoneNumber:String!
+    role: String
+}
+
+input CredentialInput{
+    phoneNumber: String!
+    password:String!
+}
+
+input UserSignupInput{
+    name: String!
+    password:String!
+    phoneNumber:String!
+}
+
+input UnsuccessfulSearchInput{
+    name:String
+    phoneNumber:String
+    StillLooking:Boolean
+    departure:String
+    destination:String
+    tripDate:String
+}
+
+input UserUpdateInput{
+    name:String
+    password:String
+    phoneNumber:String
+    active:Boolean
+    role: String
+}
+
+

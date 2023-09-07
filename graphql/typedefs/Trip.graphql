@@ -1,0 +1,29 @@
+
+type Trip{
+    _id: ID
+    bus: Bus
+    departure:String
+    destination:String
+    route:Route
+    driverAssistant:Employee
+    departureDate: String
+    departureTime: String
+    reservedSeats: [String]
+    bookedSeats: [String]
+    numberOfAvailableSeats:Int
+    alternativePaths: [String]
+}
+
+input TripSearchInput{
+    departure:String!
+    destination: String!
+    departureDate: String!
+}
+
+input TripUpdateInput{
+    bus:ID
+    driverAssistant:ID
+    reservedSeats: [String]
+    bookedSeats: [String]
+    availableSeats: [String]
+}

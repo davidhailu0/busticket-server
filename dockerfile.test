@@ -1,0 +1,23 @@
+FROM mybuset/testrunner
+
+RUN mkdir server
+
+WORKDIR /server
+
+ENV HOST=localhost
+
+ENV MONGODB_URI=mongodb://mongoDB:27017/mybus-test-db
+
+ENV NODE_ENV=testing
+
+ENV TOKEN_KEY=B3C0NBUS!N3GR0UP
+
+ENV PORT=9000
+
+COPY ./package.json ./yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+CMD [ "yarn", "test" ]
